@@ -4,8 +4,31 @@
              x:Class="CollectionViewDemo.MVVM.Views.DataView"
              Title="DataView">
 
-    <CollectionView>
-        
+    <CollectionView ItemsSource="{Binding Produkts}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid Margin="15,10,15,0"
+                      ColumnDefinitions=".1*,.2*,.7*"
+                      RowDefinitions="*,*">
+                    <Frame
+                        Grid.RowSpan="2"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BorderColor="White">
+                        <Frame.Background>
+                            <LinearGradientBrush EndPoint="1,0">
+                                <GradientStop Offset="0" Color="#F8F9FA"/>
+                                <GradientStop Offset="1" Color="#DEE2E6"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                    </Frame>
+                    <Image Grid.RowSpan="2"
+                           Grid.ColumnSpan="2"
+                           HeightRequest="100"
+                           Source="{Binding Image}"/>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
         
     </CollectionView>
     
