@@ -2,12 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CollectionViewDemo.MVVM.Views.DataView"
+             xmlns:DataTemplates="clr-namespace:CollectionViewDemo.Selectors;assembly=CollectionViewDemo"
              Title="DataView">
 
-    <CollectionView ItemsSource="{Binding Produkts}"
-                    ItemTemplate="{StaticResource ProductStyle}">
- 
-        
-    </CollectionView>
-    
+    <ContentPage.Resources>
+        <DataTemplates:ProductDataTemplateSelector x:Key="ProductTemplate" />
+    </ContentPage.Resources>
+
+    <RefreshView Command="{Binding RefreshCommand}"
+           IsRefreshing="{Binding IsRefreshing}">
+
+        <CollectionView ItemsSource="{Binding Produkts}"
+                    ItemTemplate="{StaticResource ProductTemplate}"
+                        RemainingItemsThreshold="1"
+                        RemainingItemsThresholdReachedCommand="{Binding ThreshsholdRecheadCommand}">
+
+        </CollectionView>
+    </RefreshView>
 </ContentPage>
