@@ -40,6 +40,14 @@ namespace CollectionViewDemo.MVVM.ViewModels
             RefreshItems();
         }
 
+        public ICommand DeleteCommand =>
+            new Command((p) =>
+            {
+                Produkts.Remove((Produkt)p);
+            });
+
+
+
         private void RefreshItems(int lastIndex=0)
         {
             int numberOfItemsPerPage = 10;
