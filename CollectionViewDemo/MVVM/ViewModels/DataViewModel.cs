@@ -1,4 +1,5 @@
 ﻿using CollectionViewDemo.MVVM.Models;
+using CollectionViewDemo.Selectors;
 using PropertyChanged;
 
 using System;
@@ -14,12 +15,22 @@ namespace CollectionViewDemo.MVVM.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class DataViewModel
     {
-       
+        private Produkt selectedProduct;
+        private List<Produkt> selectedProducts = new();
+
         public ObservableCollection<Produkt> Produkts { get; set; } =
             new ObservableCollection<Produkt>();
 
         public bool IsRefrashing { get; set; }
 
+        public List<Produkt> SelectedProducts
+        {
+            get => selectedProducts;
+            set
+            {
+                selectedProducts = value;
+            }
+        }
         public ICommand RefreshCommand =>
             new Command(async () =>
             {
@@ -35,18 +46,34 @@ namespace CollectionViewDemo.MVVM.ViewModels
                 RefreshItems(Produkts.Count);
             });
 
+        public ICommand ProductChangedCommand =>
+            new Command(() =>
+            {
+                var selectedProduct = SelectedProduct;
+            });
+
+        public ICommand DeleteCommand =>
+          new Command((p) =>
+          {
+              Produkts.Remove((Produkt)p);
+          });
         public DataViewModel()
         {
             RefreshItems();
+            SelectedProducts.Add(Produkts.Skip(5).FirstOrDefault());
+            SelectedProducts.Add(Produkts.Skip(7).FirstOrDefault());
         }
 
-        public ICommand DeleteCommand =>
-            new Command((p) =>
+      
+
+        public Produkt SelectedProduct
+        {
+            get => selectedProduct;
+            set
             {
-                Produkts.Remove((Produkt)p);
-            });
-
-
+                selectedProduct = value;
+            }
+        }
 
         private void RefreshItems(int lastIndex=0)
         {
