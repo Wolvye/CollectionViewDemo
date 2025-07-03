@@ -4,16 +4,16 @@
              x:Class="CollectionViewDemo.MVVM.Views.LayoutsPage"
              Title="LayoutsPage">
 
-
-    <!--<CollectionView ItemsSource="{Binding Produkts}"
+    <Grid RowDefinitions=".1*,.9*">
+    <CollectionView ItemsSource="{Binding Produkts}"
                     SelectionMode="Single"
                     SelectedItem="{Binding SelectedProduct}"
-                    SelectionChangedCommand="{Binding ProductChangedCommand}">-->
-    <CollectionView
+                    SelectionChangedCommand="{Binding ProductChangedCommand}">
+    <!--<CollectionView
         ItemsSource="{Binding Produkts}"
         SelectionMode="Multiple"
         SelectedItems="{Binding SelectedProducts}" 
-        SelectionChangedCommand="{Binding ProductsChangedCommand}">
+        SelectionChangedCommand="{Binding ProductsChangedCommand}">-->
         <CollectionView.Header>
             <Frame BackgroundColor="{StaticResource Primary}">
                 <Label FontAttributes="Bold"
@@ -45,4 +45,5 @@
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
+    </Grid>
 </ContentPage>
