@@ -5,10 +5,13 @@
              Title="LayoutsPage">
 
     <Grid RowDefinitions=".1*,.9*">
-    <CollectionView ItemsSource="{Binding Produkts}"
+        <Button Text="Clear Selection"
+                Command="{Binding ClearCommand}"/>
+        <CollectionView ItemsSource="{Binding Produkts}"
                     SelectionMode="Single"
                     SelectedItem="{Binding SelectedProduct}"
-                    SelectionChangedCommand="{Binding ProductChangedCommand}">
+                    SelectionChangedCommand="{Binding ProductChangedCommand}"
+                        Grid.Row="1">
     <!--<CollectionView
         ItemsSource="{Binding Produkts}"
         SelectionMode="Multiple"

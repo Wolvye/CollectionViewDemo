@@ -31,6 +31,12 @@ namespace CollectionViewDemo.MVVM.ViewModels
                 selectedProducts = value;
             }
         }
+
+        public ICommand ClearCommand =>
+            new Command(() =>
+            {
+                SelectedProduct = null;
+            });
         public ICommand RefreshCommand =>
             new Command(async () =>
             {
