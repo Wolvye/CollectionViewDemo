@@ -15,7 +15,7 @@
                 <x:String>RowSample</x:String>
                 <x:String>RowSample</x:String>
                 <x:String>RowSample</x:String>
-                <x:String>RowSample</x:String>
+                <x:String>RowSample</x:String> 
             </x:Array>
         </CollectionView.ItemsSource>
     </CollectionView>
