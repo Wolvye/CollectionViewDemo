@@ -5,9 +5,11 @@
              Title="LayoutsPage">
     
     
-    <CollectionView ItemsSource="{Binding Produkts}">
+    <CollectionView ItemsSource="{Binding Produkts}"
+                    Header="Products"
+                    Footer="End of List">
         <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Horizontal"
+            <LinearItemsLayout Orientation="Vertical"
                                ItemSpacing="50"/>
         </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
