@@ -28,6 +28,12 @@ public partial class ProductsView : ContentPage
 
     private void Button_Clicked(object sender, EventArgs e)
     {
-        collectionView.ScrollTo(10, groupIndex:3);
+		var vm = BindingContext as ProductsViewModel;
+		var produkt = 
+			vm.Produkt
+			.SelectMany(p => p)
+			.FirstOrDefault(x => x.Id == 10);
+
+        collectionView.ScrollTo(produkt);
     }
 }
