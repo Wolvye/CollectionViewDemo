@@ -26,6 +26,16 @@ namespace CollectionViewDemo.MVVM.ViewModels
                 select
                     new ProductsGroup(groups.Key, groups.ToList());
 
+            int id = 0;
+            foreach (var group in grouped)
+            {
+                foreach (var prodkt in group)
+                {
+                    prodkt.Id = id;
+                    id++;
+                }
+            }
+
             Produkt = grouped.ToList();
         }
         private List<Produkt> LoadItems()

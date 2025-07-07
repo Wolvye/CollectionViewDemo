@@ -1,4 +1,5 @@
 using CollectionViewDemo.MVVM.ViewModels;
+using Microsoft.Maui.Controls;
 using System.Diagnostics;
 
 namespace CollectionViewDemo.MVVM.Views;
@@ -23,5 +24,10 @@ public partial class ProductsView : ContentPage
 		Debug.WriteLine("LastVisibleItemIndex: " + e.LastVisibleItemIndex);
         Debug.Write("--------------------------------------------------------");
 
+    }
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        collectionView.ScrollTo(10, groupIndex:3);
     }
 }
