@@ -11,7 +11,7 @@ namespace CollectionViewDemo
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new EmptyView());
+            return new Window(new ProductsView());
         }
     }
 }
